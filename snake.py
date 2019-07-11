@@ -49,7 +49,15 @@ while not done:
     for x in range(1, len(allPositions)):
         if allPositions[x] == allPositions[0]:
             pygame.time.delay(1000)
+            allPositions[0] = [0,0]
             snakeLength = 1
+            direction = "right"
+    
+    if allPositions[0][0] < -10 or allPositions[0][0] > 600 or allPositions[0][1] < -10 or allPositions[0][1] > 600: 
+        pygame.time.delay(1000)
+        allPositions[0] = [0,0]
+        snakeLength = 1
+        direction = "right"
 
     pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(candyPosition[0]*10, candyPosition[1]*10, 9, 9)) #draws candy
 
